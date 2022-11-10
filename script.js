@@ -23,3 +23,8 @@ function inInterval() {
 
 // Now displays the live time by the second (assuming you open with Live Server)
 const interval = setInterval(inInterval, 100);
+
+// will set local storage later
+function createPage() {
+    $('#8am').val(JSON.parse(localStorage.getItem('08:00 am')));
+}
