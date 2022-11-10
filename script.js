@@ -25,6 +25,18 @@ function inInterval() {
 const interval = setInterval(inInterval, 100);
 
 // will set local storage later
+// makes the value of each HTML ID (using jQuery) to equal what will be set into local storage later
 function createPage() {
     $('#8am').val(JSON.parse(localStorage.getItem('08:00 am')));
+    $('#9am').val(JSON.parse(localStorage.getItem('09:00 am')));
+    $('#10am').val(JSON.parse(localStorage.getItem('10:00 am')));
+    $('#11am').val(JSON.parse(localStorage.getItem('11:00 am')));
+
+    $('#12pm').val(JSON.parse(localStorage.getItem('12:00 pm')));
+    $('#13pm').val(JSON.parse(localStorage.getItem('01:00 pm')));
+    $('#14pm').val(JSON.parse(localStorage.getItem('02:00 pm')));
+    $('#15pm').val(JSON.parse(localStorage.getItem('03:00 pm')));
+    $('#16pm').val(JSON.parse(localStorage.getItem('04:00 pm')));
+    $('#17pm').val(JSON.parse(localStorage.getItem('05:00 pm')));
+    $('#18pm').val(JSON.parse(localStorage.getItem('06:00 pm')));
 }
