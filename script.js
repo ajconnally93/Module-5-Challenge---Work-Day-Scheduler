@@ -50,7 +50,7 @@ function bg() {
         if (hour > testTime) {
             $(this).addClass('past');
 
-            // Testing this was actually pretty tricky, considering I was doing it at 10PM and the only times that were showing up based on my local time were 'past'
+            // Testing this was actually pretty tricky, considering I was doing it at 10PM and the only times that were showing up based on my local time were 'past'. Will override CSS starter-code but wanted to test for myself
             $('.past').css('background-color', 'light-grey');
         } else if (hour < testTime) {
             $(this).addClass('future');
@@ -72,8 +72,8 @@ $(document).ready(function() {
     createPage();
     bg();
     $('.saveBtn').on('click', function() {
-        userInput = $(this).siblings('.form-control').val().trim();
-        hourSpan = $(this).siblings('.input-group-prepend').text().trim();
+        userInput = $(this).siblings('.form-control').val();
+        hourSpan = $(this).siblings('.input-group-prepend').val();
         localStorage.setItem(hourSpan, JSON.stringify(userInput));
     })
 
