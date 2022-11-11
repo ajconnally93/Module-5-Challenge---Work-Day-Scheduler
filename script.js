@@ -9,7 +9,7 @@ console.log(currentTime);
 // Creating for loop to create multiple variables for each text hour
 //////
 
-const hour = moment().hours();
+var hour = moment().hours();
 
 // logs current hour without minute or seconds
 console.log(hour);
@@ -40,3 +40,21 @@ function createPage() {
     $('#17pm').val(JSON.parse(localStorage.getItem('05:00 pm')));
     $('#18pm').val(JSON.parse(localStorage.getItem('06:00 pm')));
 }
+
+// function to add class to .form-control (each hour block) based on if it's the past, present, or future
+function bg() {
+    $('.form-control').each(function () {
+        console.log(this);
+        const testTime = parseInt($(this).attr('id'));
+        hour = parseInt(hour);
+        if (hour > testTime) {
+            $(this).addClass('past');
+        } else if (hour < testTime) {
+            $(this).addClass('future');
+        } else {
+            $(this).addClass('present');
+        }
+    });
+}
+
+// bg ();
