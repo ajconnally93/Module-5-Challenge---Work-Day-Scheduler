@@ -6,7 +6,7 @@ console.log(currentDate);
 console.log(currentTime);
 
 //////
-// Creating for loop to create multiple variables for each text hour
+// Could create for loop to create multiple variables for each text hour
 //////
 
 var hour = moment().hours();
@@ -49,12 +49,37 @@ function bg() {
         hour = parseInt(hour);
         if (hour > testTime) {
             $(this).addClass('past');
+
+            // Testing this was actually pretty tricky, considering I was doing it at 10PM and the only times that were showing up based on my local time were 'past'
+            $('.past').css('background-color', 'light-grey');
         } else if (hour < testTime) {
             $(this).addClass('future');
+            $('.future').css('background-color', '#90EE90');
         } else {
             $(this).addClass('present');
+            $('.present').css('background-color', '#FFCCCB');
         }
     });
 }
 
 // bg ();
+
+// DOCUMENTATION FOR PERSONAL REFERENCE:
+// A page can't be manipulated safely until the document is "ready." jQuery detects this state of readiness for you. Code included inside $( document ).ready() will only run once the page Document Object Model (DOM) is ready for JavaScript code to execute. 
+
+// will now set local storage
+$(document).ready(function() {
+    createPage();
+    bg();
+    $('.saveBtn').on('click', function() {
+        userInput = $(this).siblings('.form-control').val().trim();
+        hourSpan = $(this).siblings('.input-group-prepend').text().trim();
+        localStorage.setItem(hourSpan, JSON.stringify(userInput));
+    })
+
+    // will clear local storage
+    $('#clearDay').on('click', function() {
+        localStorage.clear();
+        createPage();
+    })
+});
